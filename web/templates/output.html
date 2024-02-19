@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Hasil Klasifikasi Kanker Kulit</title>
+    <style>
+      body {
+        font-family: "Nunito", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #007bff; /* Warna merah */
+        color: #495057;
+      }
+
+      header {
+        background-color: #007bff;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        color: #007bff;
+        font-weight: bold;
+      }
+
+      main {
+        padding: 40px 0;
+      }
+
+      section {
+        text-align: center;
+
+        border-radius: 10px;
+        border: 2px solid #007bff;
+        padding: 20px;
+        margin: 10px;
+        background-color: #fff;
+      }
+
+      p {
+        margin-bottom: 20px;
+        font-size: 1em;
+        font-weight: bold;
+      }
+
+      #result-container {
+        border: 2px solid #007bff;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+        background-color: #fff;
+      }
+
+      #result-image {
+        max-width: 300px;
+        max-height: 300px;
+        margin-top: 20px;
+      }
+
+      #result-info p {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #007bff;
+      }
+
+      .prediksi-button {
+        padding: 10px 20px;
+        font-size: 1.2em;
+        background-color: #0cc28b;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+        margin: 10px;
+      }
+
+      .copyright {
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <section id="result-section" class="container">
+        <h1>Hasil Klasifikasi Kanker Kulit</h1>
+        <div id="result-container" class="result-container">
+          <div id="result-info">
+            <p>Jenis: {{ result.Jenis }}</p>
+            <p>Akurasi: {{ result.Akurasi * 100 }}%</p>
+            <p>Nama Berkas Gambar: {{ img }}</p>
+          </div>
+          <img
+            id="result-image"
+            src="{{ url_for('send_uploaded_image', fileimg=img) }}"
+            alt="Uploaded Image"
+          />
+          <button class="prediksi-button" onclick="window.location.href='/';">
+            Cek Gambar Lain
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="copyright text-center">
+      <p class="cr">Copyright: Dionixius 2024</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  </body>
+</html>
